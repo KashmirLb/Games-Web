@@ -28,12 +28,10 @@
 }
 
 .start-button{
-  position:static;
-  margin:10px;
+ 
   
   height: 50px;
   width: 150px;
-  
 
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
   rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
@@ -58,7 +56,7 @@
   width: 100%;
   border-radius: 100px;
   margin-top:calc(50px + 5vh);
-  margin-bottom: 20%;
+ margin-bottom:-5px;
 
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
   rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
@@ -81,7 +79,7 @@
 .center-container{
   background-color:goldenrod;
   text-align: center;
-  height: 90vh;
+  height: 93vh;
 }
 
 .left-container{
@@ -92,7 +90,7 @@
 
 .game-window{
   margin-top: 400px;
-  height: 90vh;
+  height: 93vh;
 }
 
 .game-title{
@@ -116,6 +114,7 @@
   width: 100px;
   border-radius: 50px;
   margin-top:calc(40vh - 25px);
+  margin-bottom:-5px;
 
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
   rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
@@ -145,14 +144,12 @@
     width: 100%;
     height: 30px;
     background-color: rgb(235, 173, 2);
+    
    }
 
   70%{
     margin-top: calc(93vh - 30px);
     width: 100%;
     height: 30px;
-  }
-  85%{
-    margin-bottom:15%;
   }
 }

@@ -9,13 +9,13 @@ const MainPage = () => {
 
     const onClickHandler = ()=>{
         // history.push("/tic-game")
-        setStartButton(<div className="start-button-effect" onAnimationEnd={()=>history.push("/tic-game")} ></div>)
+        setStartButton(<div className="start-button-effect" onAnimationEnd={()=>history.push("/tic-game")}></div>)
     }
 
     const [startButton, setStartButton] = useState(
         <div className="start-button-div-container">
-            <button className="start-button" onClick={onClickHandler}>To the Game</button>
-        </div>)
+        <button className="start-button" onClick={onClickHandler}>To the Game</button>
+    </div>)
     const history = useHistory();
 
   
