@@ -1,0 +1,50 @@
+.page {
+  background-color: aquamarine;
+}
+
+.head-and-page{
+  background-color: darkviolet;
+}
+
+.toolbar{
+
+  background-color: darkslategray;
+  height: 10vh;
+}
+
+.right-container{
+  background-color: red;
+  text-align: center;
+  
+}
+
+.center-container{
+  background-color:goldenrod;
+  text-align: center;
+  height: 90vh;
+}
+
+.left-container{
+  background-color:deepskyblue ;
+  text-align: center;
+ 
+}
+
+.game-window{
+  margin-top: 400px;
+  height: 90vh;
+}
+
+.game-title{
+  background-color: pink;
+}
+
+.game-game{
+  background-color: powderblue;
+  width: 400px;
+}
+
+.game-buttons{
+  background-color: rosybrown;
+}
+
