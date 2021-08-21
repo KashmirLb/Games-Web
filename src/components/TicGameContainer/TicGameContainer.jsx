@@ -6,7 +6,7 @@ import GameWindow from '../GameWindow'
 
 const viewMount = component =>{
 
-    if(window.innerWidth<= 760){
+    if(window.innerWidth<=760){
         return(
             <Grid container>
                 <Grid item
@@ -54,7 +54,7 @@ const viewMount = component =>{
     )
 }
 
-const GameContainer = () => {
+const TicGameContainer = () => {
     return viewMount(<GameWindow/>);
 }
 
@@ -62,4 +62,4 @@ const GameContainer = () => {
 
 // }
 
-export default GameContainer
+export default TicGameContainer
