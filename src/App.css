@@ -28,7 +28,6 @@
 }
 
 .start-button{
- 
   
   height: 50px;
   width: 150px;
@@ -73,7 +72,7 @@
 .right-container{
   background-color: red;
   text-align: center;
-  
+  padding:1%;
 }
 
 .center-container{
@@ -85,25 +84,40 @@
 .left-container{
   background-color:deepskyblue ;
   text-align: center;
- 
+  padding-left:200px;
 }
 
 .game-window{
-  margin-top: 400px;
   height: 93vh;
 }
 
 .game-title{
   background-color: pink;
+ 
+  height: 13vh;
 }
 
 .game-game{
-  background-color: powderblue;
-  width: 400px;
+  background-color: blue;
+  height: 60vh;
+  width: 100%;
 }
 
 .game-buttons{
   background-color: rosybrown;
+  height: 20vh;
+}
+
+.scoreboard-container-big{
+  width: 100%;
+  height: 50vh;
+  background-color: black;
+}
+
+.scoreboard-container-small{
+  width: 100%;
+  height: 20vh;
+  background-color: black;
 }
 
 @keyframes starting-game {
