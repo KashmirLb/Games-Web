@@ -1,6 +1,7 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
-import { Grid, AppBar, Toolbar } from '@material-ui/core'
+import { Grid, Link, AppBar, Toolbar, IconButton } from '@material-ui/core'
+import {Link as LinkRouter} from 'react-router-dom'
 
 
 const AppFrame = ({ children }) => {
@@ -12,7 +13,15 @@ const AppFrame = ({ children }) => {
                 <AppBar position="static">
                     <Toolbar variant="dense"
                     className="toolbar">
-                        Whats uuuuup!
+                         <IconButton color="inherit" aria-label="menu">
+                            <Link 
+                            to="/" 
+                            color="inherit" 
+                            aria-label="menu"
+                            component={LinkRouter}>
+                                Main Page
+                            </Link>
+                        </IconButton>
                     </Toolbar>
                 </AppBar>
                 <Grid item

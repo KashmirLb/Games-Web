@@ -31,18 +31,41 @@ buildMatrix(matrix);
 
 export const checkExist = (matrix, coords) => matrix.some(m =>m.x===coords.x && m.y===coords.y)
 
-function TicGame ({sp,sc}){
+var playerTurn="1"
+
+function TicGame ({sp, sc, vs}){
+
+    const vsPlayer=vs;
 
     function resetGame(){
         player=[]
         computer=[]
+        playerTurn="1"
         setGameText("Resetting Game...")
         setButtons(allButtons())
 
         setTimeout(()=>{
             setGameText("")
         },800)
+
+        console.log(vsPlayer)
     }
+
+    function vsComputer(){
+        setTimeout(()=>{
+            var compP = computerSelects(player, computer)
+            computerSelections(compP.x, compP.y)
+            disable=false;
+            if (checkWin(computer)){
+                setGameText("The computer has won...")
+                sc();
+                console.log(winLose)
+                disable=true}
+            setButtons(allButtons())
+        },1200)
+    }
+
+    
 
     function playerSelections(xp , yp){
 
@@ -69,36 +92,60 @@ function TicGame ({sp,sc}){
     }
 
     var disable = false;
+    
 
-    const playerClicked = position =>{
-
+    const player1Clicked = position =>{
+        
         playerSelections(position.x, position.y)
         disable=true;
         setButtons(allButtons())
 
         if (!endGame(player, computer)&&!checkWin(player)){
-
-            setTimeout(()=>{
-                var compP = computerSelects(player, computer)
-                computerSelections(compP.x, compP.y)
-                disable=false;
-                if (checkWin(computer)){
-                    setGameText("The computer has won...")
-                    sc();
-                    console.log(winLose)
-                    disable=true}
-                setButtons(allButtons())
-            },1200)   
+            // vsComputer();
+            if (vsPlayer){
+            
+                playerTurn="2"
+                setTimeout(()=>{
+                    
+                    console.log(playerTurn)
+                    disable=false
+                    setButtons(allButtons())
+                },200) 
+            }
+            else vsComputer();    
         }
+        
         if(endGame(player, computer)) setGameText("Game Over") 
         if(checkWin(player)) {
-            setGameText("You Win!!!")
-            sp();
-        }
+            if (vsPlayer) setGameText("Player 1 Wins!")
+            else setGameText("You Win!!!")
+            sp();  
     }
+}
+
+    const player2Clicked = position =>{
+
+        computerSelections(position.x, position.y)
+        disable=true;
+        setButtons(allButtons())
+
+        
+        if (!endGame(player, computer)&&!checkWin(computer)){
+        setTimeout(()=>{
+            playerTurn="1"
+            disable=false
+            setButtons(allButtons())
+            },200)
+        }
+        if(endGame(player, computer)) setGameText("Game Over") 
+        if(checkWin(computer)) {
+            setGameText("Player 2 Wins!")
+            sc();      
+    }}
 
     const clickChoice = position =>{
-        if (!endGame(player, computer)&&!checkWin(player,"player")&&!checkWin(computer,"pc")) playerClicked(position);
+        if (!endGame(player, computer)&&!checkWin(player,"player")&&!checkWin(computer,"pc")&&playerTurn==="1") player1Clicked(position);
+        else if (!endGame(player, computer)&&!checkWin(player,"player")&&!checkWin(computer,"pc")&&playerTurn==="2") player2Clicked(position);
         else console.log("Game has ended!!")
     }
 

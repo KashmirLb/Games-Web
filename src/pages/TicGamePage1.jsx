@@ -2,10 +2,10 @@ import React from 'react'
 import TicGameContainer from '../components/Tic-Tac-Toe-Game/TicGameContainer'
 // import PropTypes from 'prop-types'
 
-const TicGamePage = () => {
+const TicGamePage1 = () => {
     return (
         <div>
-            <TicGameContainer/>
+            <TicGameContainer vsP={false} second="Computer: "/>
         </div>
     )
 }
@@ -14,4 +14,4 @@ const TicGamePage = () => {
 
 // }
 
-export default TicGamePage
+export default TicGamePage1

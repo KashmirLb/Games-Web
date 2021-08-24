@@ -5,7 +5,7 @@ import TicGame from '../TicGame'
 
 
 
-const GameWindow = ({setPlayer, setComputer}) => {
+const GameWindow = ({setPlayer, setComputer, buttonOption, playingVs}) => {
     return (<Grid container
         direction="row"
         alignItems="center"
@@ -26,17 +26,17 @@ const GameWindow = ({setPlayer, setComputer}) => {
                 justifyContent="center"
                 className="game-game">
                     <Grid item>
-                        <TicGame sp={setPlayer} sc={setComputer}/>
+                        <TicGame sp={setPlayer} sc={setComputer} vs={playingVs}/>
                     </Grid>
-                    
                 </Grid>
                 <Grid item container
                 className="game-buttons"
-                direction="row"
                 alignItems="center"
-                justifyContent="center">
-                    <Grid item>
-                        Buttons
+                justifyContent="center"
+                >
+                    <Grid item
+                    xs={12}>
+                        {buttonOption}
                     </Grid>
                 </Grid>
             </Grid>
