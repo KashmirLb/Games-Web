@@ -1,10 +1,11 @@
 import { Grid } from '@material-ui/core'
 import React from 'react'
+import TicGame from '../TicGame'
 // import PropTypes from 'prop-types'
 
 
 
-const GameWindow = () => {
+const GameWindow = ({setPlayer, setComputer}) => {
     return (<Grid container
         direction="row"
         alignItems="center"
@@ -18,12 +19,16 @@ const GameWindow = () => {
                 alignItems="center"
                 justifyContent="center">
                     <Grid item>
-                        Title
+                        Tic-Tac-Toe
                     </Grid>
                 </Grid>
-                <Grid item 
+                <Grid item container
+                justifyContent="center"
                 className="game-game">
-                    <div>This is the Game</div>
+                    <Grid item>
+                        <TicGame sp={setPlayer} sc={setComputer}/>
+                    </Grid>
+                    
                 </Grid>
                 <Grid item container
                 className="game-buttons"

@@ -31,6 +31,7 @@
   
   height: 50px;
   width: 150px;
+  font-weight: bolder;
 
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
   rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
@@ -47,22 +48,27 @@
   width: 100px;
   border-radius: 50px;
   margin-top:-25px;
+  
 }
 
 .start-button-effect{
   display: inline-block;
-  height: 80%;
+  height: 60vh;
   width: 100%;
-  border-radius: 100px;
-  margin-top:calc(50px + 5vh);
- margin-bottom:-5px;
+  border-radius: 50px;
+  margin-top: 13vh;
+  margin-bottom:-5px;
 
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
   rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
   rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 
- 
-  background-color: rgb(66, 65, 64);
+  border-color: lightblue ;
+  border-width: 2px;
+  border-style: solid;
+  box-shadow: 0 0 20px lightblue;
+
+  background-color: rgb(41, 40, 36);
   border-style:none;
 
   animation-name: starting-game;
@@ -70,54 +76,247 @@
 }
 
 .right-container{
-  background-color: red;
+  
   text-align: center;
   padding:1%;
 }
 
 .center-container{
-  background-color:goldenrod;
+
   text-align: center;
   height: 93vh;
 }
 
 .left-container{
-  background-color:deepskyblue ;
+ 
   text-align: center;
   padding-left:200px;
 }
 
+
+/* TicTac Game -----------------------------------------------------------------------------------------*/
 .game-window{
   height: 93vh;
 }
 
 .game-title{
-  background-color: pink;
- 
+  font-size: 4vh;
+  font-weight: bold;
+  color: rgb(247, 211, 114);
   height: 13vh;
+
+  text-shadow: 5px 10px 20px rgb(101, 71, 4);
 }
 
 .game-game{
-  background-color: blue;
-  height: 60vh;
+  
+  height: 62vh;
   width: 100%;
+  border-radius: 50px;
+  background-color: rgb(41, 40, 36);
+  
+  border-color: lightblue ;
+  border-width: 2px;
+  border-style: solid;
+  box-shadow: 0 0 20px lightblue;
 }
 
 .game-buttons{
-  background-color: rosybrown;
-  height: 20vh;
+  height: 18vh;
 }
 
+.game-container{
+  float:left;
+  padding:7px;
+  box-shadow:black 5px 0px 60px 10px inset;
+  background: rgb(58, 89, 243);
+  width: calc(252px + 6vw);
+  border-radius: 10px;
+  margin-top:40px;
+  
+  animation-name: scoreboard-appears;
+  animation-duration:1s;
+}
+
+.selection-button{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  background-color: rgb(235, 173, 2);
+  margin:7px;
+  border-style: none;
+  width: calc(70px + 2vw);
+  height: calc(70px + 2vw);
+  float:left;
+  transition: 0.5s all ease-in;
+  border-radius:5px
+}
+
+.fa-times {
+  font-size:40px;
+  color:rgb(59, 50, 25)
+}
+
+.fa-circle {
+  font-size:40px;
+  color:rgb(59, 50, 25);
+  font-stretch: extra-expanded;
+}
+
+.selection-button:hover{
+  background-color: rgb(247, 204, 86);
+  margin:7px;
+  border-style: none;
+  width: calc(70px + 2vw);
+  height: calc(70px + 2vw);
+  float:left;
+  transition: 0.2s all ease-in;
+  border-radius:5px
+}
+
+.selection-button:disabled{
+  background-color: rgb(235, 173, 2);
+  color: black;
+  border-style: none;
+  border-radius:5px
+}
+
+.selection-button-clicked{
+  background: rgb(255, 255, 255);
+  margin:7px;
+  border-style: none;
+  width: calc(70px + 2vw);
+  height: calc(70px + 2vw);
+  float:left;
+  border-radius:5px
+}
+
+.selection-button-pc{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  background-color: rgb(235, 173, 2);
+  margin:7px;
+  border-style: none;
+  width: calc(70px + 2vw);
+  height: calc(70px + 2vw);
+  float:left;
+  animation-name: pc-selected;
+  animation-duration:1.5s;
+  border-radius:5px
+}
+
+.selection-button-pc:disabled{
+  background-color: rgb(235, 173, 2);
+  color: black;
+  border-style: none;
+  border-radius:5px
+}
+
+.action-button-container{
+  position:relative;
+   clear:both;
+   height: 100px;
+}
+
+.action-button{
+  
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+   margin-top:20px;
+   font-size: 15px;
+  font-weight: bold;
+   align-items: center;
+   height: 64px;
+   width: 134px;
+   border-radius: 20px;
+   background-color: rgb(235, 173, 2);
+
+   transition: 0.2s all ease-in-out;
+   border-width: 14px;
+   border-color: rgb(23, 39, 120);
+
+   animation-name: scoreboard-appears;
+   animation-duration:1s;
+}
+
+.action-button:hover{
+  margin-top:20px;
+  font-weight: bold;
+  align-items: center;
+  height: 70px;
+  width: 150px;
+  border-radius: 20px;
+  background-color: rgb(247, 204, 86);
+  border-width: 14px;
+  border-color: rgb(23, 39, 120);
+}
+
+.win-text-container{
+   clear:both;
+   height: 40px;
+   text-align:center;
+   padding-top:20px;
+}
+
+.win-text{
+   float:bottom;
+   color:white;
+   font-size: 20px;   
+}
+
+@keyframes pc-selected {
+  0% {background-color:red};
+}
+
+/* Scoreboard --------------------------------------------------------------------------------- */
 .scoreboard-container-big{
   width: 100%;
   height: 50vh;
   background-color: black;
+  border-radius: 10px;
+  border-color: lightblue ;
+  border-width: 2px;
+  border-style: solid;
+  box-shadow: 0 0 20px lightblue;
+  opacity:100%;
+  padding:20px;
+
+  animation-name: scoreboard-appears;
+  animation-duration:1s;
 }
 
 .scoreboard-container-small{
   width: 100%;
   height: 20vh;
   background-color: black;
+  padding:20px;
+  
+
+  border-radius: 10px;
+  border-color: lightblue ;
+  border-width: 2px;
+  border-style: solid;
+  box-shadow: 0 0 20px lightblue;
+
+  opacity:100%;
+  animation-name: scoreboard-appears;
+  animation-duration:1s;
+}
+
+.scoreboard-text{
+
+  width: 100%;
+  background: rgb(19, 19, 20);
+  border-width: 1px;
+  border-style:solid;
+  border-color:lightblue;
+  box-shadow: 0 0 5px lightblue;
+  border-radius: 5px;
+  padding:10px;
+
+  color:rgb(247, 204, 86);
 }
 
 @keyframes starting-game {
@@ -166,4 +365,12 @@
     width: 100%;
     height: 30px;
   }
+}
+
+@keyframes scoreboard-appears {
+
+  0%{
+    opacity: 0%;
+  }
+  
 }

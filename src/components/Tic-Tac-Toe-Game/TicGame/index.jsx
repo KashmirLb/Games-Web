@@ -1,0 +1,1 @@
+export { default, checkExist, player, computer, winLose } from './TicGame'

@@ -1,19 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Grid } from '@material-ui/core'
 import GameWindow from '../GameWindow'
 import ScoreBoard from '../ScoreBoard'
 
 // import PropTypes from 'prop-types'
 
-const  scoreBoardMount = () =>{
-
-    if (window.innerWidth<=800)return "scoreboard-container-small"
-    
-    else return "scoreboard-container-big"
-}
 
 
-const viewMount = (component) =>{
+const viewMount = (component, player, computer) =>{
 
     if(window.innerWidth<=800){
         return(
@@ -32,7 +26,7 @@ const viewMount = (component) =>{
                     className="right-container">
                         <Grid item
                         xs={10}>
-                            <ScoreBoard type="scoreboard-container-small"/>
+                            <ScoreBoard type="scoreboard-container-small" player={player} computer={computer}/>
                         </Grid> 
                 </Grid>   
                 <Grid item container
@@ -42,7 +36,7 @@ const viewMount = (component) =>{
                     md={2}
                     className="left-container">
                         <Grid item>
-                        Left Container
+                       
                         </Grid>
                 </Grid>       
             </Grid>
@@ -57,7 +51,7 @@ const viewMount = (component) =>{
                     md={4}
                     className="left-container">
                         <Grid item>
-                        Left Container
+                     
                         </Grid>
                 </Grid>   
             <Grid item
@@ -71,8 +65,9 @@ const viewMount = (component) =>{
                     xs={12}
                     md={4}
                     className="right-container">
-                     <Grid item>
-                        <ScoreBoard type="scoreboard-container-big"/>
+                     <Grid item 
+                     md={6}>
+                        <ScoreBoard type="scoreboard-container-big" player={player} computer={computer}/>
                     </Grid> 
             </Grid>        
         </Grid>
@@ -80,7 +75,20 @@ const viewMount = (component) =>{
 }
 
 const TicGameContainer = () => {
-    return viewMount(<GameWindow/>);
+
+    const [playerPoints, setPlayerPoints] = useState(0);
+    const [computerPoints, setComputerPoints] = useState(0);
+
+    const computerPointsF = () =>{
+        setComputerPoints(computerPoints+1)
+    }
+
+    const playerPointsF = () =>{
+        setPlayerPoints(playerPoints+1)
+    }
+
+
+    return viewMount(<GameWindow setPlayer={playerPointsF} setComputer={computerPointsF}/>, playerPoints, computerPoints);
 }
 
 // GameContainer.propTypes = {

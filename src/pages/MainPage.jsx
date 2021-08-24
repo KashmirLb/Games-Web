@@ -29,7 +29,7 @@ const MainPage = () => {
             md={4}>
             </Grid>
             <Grid item
-            xs={12}
+            xs={10}
             md={4}
             className="start-button-container">
                 {startButton}
