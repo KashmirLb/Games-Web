@@ -1,5 +1,5 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 const GameText = ({text}) => {
     return (
@@ -9,8 +9,8 @@ const GameText = ({text}) => {
     )
 }
 
-// GameText.propTypes = {
-
-// }
+GameText.propTypes = {
+    text: PropTypes.string.isRequired
+}
 
 export default GameText

@@ -1,6 +1,3 @@
-import React from 'react'
-// import PropTypes from 'prop-types'
-
 export const winCoords = [
     {
         x1:0, y1:0, x2:0, y2:1, x3:0, y3:2
@@ -44,17 +41,3 @@ export function checkWin(playerOpt){
         })
     )  
 }
-
-const WinningOptions = () => {
-    return (
-        <div>
-           
-        </div>
-    )
-}
-
-// WinningOptions.propTypes = {
-
-// }
-
-export default WinningOptions

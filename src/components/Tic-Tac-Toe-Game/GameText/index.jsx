@@ -1,1 +1,1 @@
-export {default} from './GameText'
+export { default } from './GameText'

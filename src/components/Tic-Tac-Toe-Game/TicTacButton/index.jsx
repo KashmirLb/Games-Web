@@ -1,1 +1,1 @@
-export {default} from './TicTacButton'
+export { default } from './TicTacButton'

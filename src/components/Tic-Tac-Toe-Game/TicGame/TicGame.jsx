@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import TicTacButton from '../TicTacButton'
 import { checkWin } from '../WinningOptions'
 import { computerSelects } from '../ComputerPlays'
@@ -47,8 +47,6 @@ function TicGame ({sp, sc, vs}){
         setTimeout(()=>{
             setGameText("")
         },800)
-
-        console.log(vsPlayer)
     }
 
     function vsComputer(){
@@ -59,13 +57,10 @@ function TicGame ({sp, sc, vs}){
             if (checkWin(computer)){
                 setGameText("The computer has won...")
                 sc();
-                console.log(winLose)
                 disable=true}
             setButtons(allButtons())
         },1200)
     }
-
-    
 
     function playerSelections(xp , yp){
 
@@ -106,15 +101,12 @@ function TicGame ({sp, sc, vs}){
             
                 playerTurn="2"
                 setTimeout(()=>{
-                    
-                    console.log(playerTurn)
                     disable=false
                     setButtons(allButtons())
                 },200) 
             }
             else vsComputer();    
         }
-        
         if(endGame(player, computer)) setGameText("Game Over") 
         if(checkWin(player)) {
             if (vsPlayer) setGameText("Player 1 Wins!")
@@ -129,7 +121,6 @@ function TicGame ({sp, sc, vs}){
         disable=true;
         setButtons(allButtons())
 
-        
         if (!endGame(player, computer)&&!checkWin(computer)){
         setTimeout(()=>{
             playerTurn="1"
@@ -180,7 +171,9 @@ const [gameText, setGameText] = useState("")
 }
 
 TicGame.propTypes = {
-
+    sp: PropTypes.func.isRequired,
+    sc: PropTypes.func.isRequired,
+    vs: PropTypes.bool.isRequired
 }
 
 export default TicGame

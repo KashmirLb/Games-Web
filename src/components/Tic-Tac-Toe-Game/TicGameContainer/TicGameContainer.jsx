@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import { Grid } from '@material-ui/core'
 import GameWindow from '../GameWindow'
 import ScoreBoard from '../ScoreBoard'
 import { useHistory } from 'react-router-dom';
-
-// import PropTypes from 'prop-types'
 
 var buttonOption="";
 
@@ -24,68 +23,78 @@ const viewMount = (component, player, computer, vsPlayer, vsComputer, second) =>
                 <Grid item
                     xs={12}
                     md={4}
-                    className="center-container">
-                        {component}
+                    className="center-container"
+                    >
+                    {component}
                 </Grid>   
                 <Grid item container
-                justifyContent="center"
-                alignItems="center"
+                    justifyContent="center"
+                    alignItems="center"
                     xs={12}
                     md={2}
-                    className="right-container">
-                        <Grid item
-                        xs={10}>
-                           <button className="action-button" onClick={vsPlayer}>Player vs Player</button>
-                           <button className="action-button" onClick={vsComputer}>Player vs Computer</button>
-                        </Grid> 
+                    className="right-container"
+                    >
+                    <Grid item
+                        xs={12}
+                        >
+                        -
+                    </Grid>
+                    <Grid item
+                        xs={12}
+                        >
+                        <button className="action-button" onClick={vsPlayer}>Player vs Player</button>
+                        <button className="action-button" onClick={vsComputer}>Player vs Computer</button>
+                    </Grid> 
                 </Grid>   
                 <Grid item container
-                justifyContent="center"
-                alignItems="center"
+                    justifyContent="center"
+                    alignItems="center"
                     xs={12}
                     md={2}
-                    className="left-container">
-                        <Grid item>
-                       
-                        </Grid>
+                    className="left-container"
+                    >
+                    <Grid item>
+                    </Grid>
                 </Grid>       
             </Grid>
         )
     }
-    else 
-    buttonOption=mountButtons();
-    return(
-        
-
-        <Grid container>
+    else {
+        buttonOption=mountButtons();
+        return(
+            <Grid container>
                 <Grid item container
-                justifyContent="center"
-                alignItems="center"
+                    justifyContent="center"
+                    alignItems="center"
                     xs={12}
                     md={4}
-                    className="left-container">
-                        <Grid item>
-                     
-                        </Grid>
+                    className="left-container"
+                    >
+                    <Grid item>
+                    </Grid>
                 </Grid>   
-            <Grid item
-                xs={12}
-                md={4}
-                className="center-container">
-                    {component}
-            </Grid>     
-            <Grid item container
-                alignItems="center"
+                <Grid item
                     xs={12}
                     md={4}
-                    className="right-container">
-                     <Grid item 
-                     md={6}>
+                    className="center-container"
+                    >
+                    {component}
+                </Grid>     
+                <Grid item container
+                    alignItems="center"
+                    xs={12}
+                    md={4}
+                    className="right-container"
+                    >
+                    <Grid item 
+                        md={6}
+                        >
                         <ScoreBoard type="scoreboard-container-big" player={player} computer={computer} second={second}/>
                     </Grid> 
-            </Grid>        
-        </Grid>
-    )
+                </Grid>        
+            </Grid>
+        )
+    }
 }
 
 const TicGameContainer = ({vsP, second}) => {
@@ -113,13 +122,14 @@ const TicGameContainer = ({vsP, second}) => {
         setPlayerPoints(playerPoints+1)
     }
 
-    
+    const gameWindowMount = <GameWindow setPlayer={playerPointsF} setComputer={computerPointsF} buttonOption={buttonOption} playingVs={vsP}/>
 
-    return viewMount(<GameWindow setPlayer={playerPointsF} setComputer={computerPointsF} buttonOption={buttonOption} playingVs={vsP}/>, playerPoints, computerPoints, vsPlayer, vsComputer, second);
+    return viewMount(gameWindowMount, playerPoints, computerPoints, vsPlayer, vsComputer, second);
 }
 
-// GameContainer.propTypes = {
-
-// }
+TicGameContainer.propTypes = {
+    vsP: PropTypes.bool.isRequired,
+    second: PropTypes.string.isRequired
+}
 
 export default TicGameContainer

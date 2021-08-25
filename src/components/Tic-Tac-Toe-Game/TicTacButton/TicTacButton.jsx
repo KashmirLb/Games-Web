@@ -22,5 +22,4 @@ const TicTacButton = ({position, type, clickHandler, text, disabling}) => {
     else return <Button type={style} text={text} clickHandler={buttonClicked} disabled={disabling}/>
 }
 
-
 export default TicTacButton

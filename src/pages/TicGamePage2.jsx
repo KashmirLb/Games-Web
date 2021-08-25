@@ -1,6 +1,6 @@
 import React from 'react'
 import TicGameContainer from '../components/Tic-Tac-Toe-Game/TicGameContainer'
-// import PropTypes from 'prop-types'
+
 
 const TicGamePage2 = () => {
     return (
@@ -9,9 +9,5 @@ const TicGamePage2 = () => {
         </div>
     )
 }
-
-// TicGamePage.propTypes = {
-
-// }
 
 export default TicGamePage2

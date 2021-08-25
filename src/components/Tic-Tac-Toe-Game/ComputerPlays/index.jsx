@@ -1,1 +1,1 @@
-export {default, computerSelects } from './ComputerPlays'
+export { computerSelects } from './ComputerPlays'

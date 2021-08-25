@@ -1,6 +1,5 @@
 import { Grid } from '@material-ui/core'
-// import TicGame, {winLose}  from '../TicGame'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 const ScoreBoard = ({type, player, computer, second}) => {
 
@@ -19,8 +18,11 @@ const ScoreBoard = ({type, player, computer, second}) => {
     )
 }
 
-// ScoreBoard.propTypes = {
-
-// }
+ScoreBoard.propTypes = {
+    type: PropTypes.string.isRequired,
+    player: PropTypes.number.isRequired,
+    computer: PropTypes.number.isRequired,
+    second: PropTypes.string.isRequired
+}
 
 export default ScoreBoard

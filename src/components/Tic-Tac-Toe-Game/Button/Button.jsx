@@ -1,5 +1,4 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
 
 const Button = ({type,text,clickHandler,disabled}) => {
     return (
@@ -8,9 +7,5 @@ const Button = ({type,text,clickHandler,disabled}) => {
         </button>
     )
 }
-
-// Button.propTypes = {
-
-// }
 
 export default Button

@@ -1,9 +1,5 @@
-import React from 'react'
 import { player, computer, checkExist } from '../TicGame';
 import { winCoords } from '../WinningOptions'
-
-
-// import PropTypes from 'prop-types'
 
 function checkWin(){
 
@@ -80,7 +76,6 @@ function checkLose(){
     return coords
 }
 
-
 export function computerSelects(player, comp){
 
     const win= checkWin();
@@ -114,17 +109,3 @@ export function computerSelects(player, comp){
         return lose
     }    
 }
-
-const Computer = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
-
-// Computer.propTypes = {
-
-// }
-
-export default Computer

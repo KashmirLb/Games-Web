@@ -1,1 +1,1 @@
-export {default, winCoords, checkWin} from './WinningOptions'
+export { winCoords, checkWin } from './WinningOptions'
