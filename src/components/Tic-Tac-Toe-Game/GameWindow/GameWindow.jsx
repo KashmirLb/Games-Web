@@ -38,7 +38,7 @@ const GameWindow = ({setPlayer, setComputer, buttonOption, playingVs}) => {
                         </Grid>
                     </Grid>
                 </Grid>
-        </Grid>
+            </Grid>
     )
 }
 

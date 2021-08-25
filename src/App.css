@@ -325,6 +325,7 @@
   border-width: 2px;
   border-style: solid;
   box-shadow: 0 0 20px lightblue;
+
   padding:20px;
 
   animation-name: scoreboard-appears;

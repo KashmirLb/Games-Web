@@ -50,7 +50,7 @@ import Button from '../Button'
         )
     }
 
-const largeWindowMount = (component, player, computer, second) =>{
+const largeWindowMount = (component, player, computer, second, vsPlayer, vsComputer) =>{
 
         return(
             <Grid container>
@@ -62,6 +62,10 @@ const largeWindowMount = (component, player, computer, second) =>{
                     className="left-container"
                     >
                     <Grid item>
+                        <div>
+                            <div><Button type="action-button" text="Player vs Player" clickHandler={vsPlayer}/></div>
+                            <div><Button type="action-button" text="Player vs Computer" clickHandler={vsComputer}/></div>
+                        </div>
                     </Grid>
                 </Grid>   
                 <Grid item
@@ -120,21 +124,13 @@ const TicGameContainer = ({vsP, second}) => {
             
             buttonOptions=<ScoreBoard type="scoreboard-container-small" player={playerPoints} computer={computerPoints} second={second}/>
         }
-        else{
-
-            buttonOptions=  
-        <div>
-            <Button type="action-button" text="Player vs Player" clickHandler={vsPlayer}/>
-            <Button type="action-button" text="Player vs Computer" clickHandler={vsComputer}/>
-        </div>
-        }
         return <GameWindow setPlayer={playerPointsF} setComputer={computerPointsF} buttonOption={buttonOptions} playingVs={vsP}/>;
     }
 
     const gameWindowMount = mountButtons();
 
     if (window.innerWidth<=800) return smallWindowMount(gameWindowMount, vsPlayer, vsComputer);
-    else return largeWindowMount(gameWindowMount, playerPoints, computerPoints, second);
+    else return largeWindowMount(gameWindowMount, playerPoints, computerPoints, second, vsPlayer, vsComputer);
 }
 
 TicGameContainer.propTypes = {
