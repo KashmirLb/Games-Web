@@ -4,20 +4,10 @@ import { Grid } from '@material-ui/core'
 import GameWindow from '../GameWindow'
 import ScoreBoard from '../ScoreBoard'
 import { useHistory } from 'react-router-dom';
-
-var buttonOption="";
-
-const viewMount = (component, player, computer, vsPlayer, vsComputer, second) =>{
-
-    const mountButtons = () => (
-        <div>
-            <button className="action-button" onClick={vsPlayer}>Player vs Player</button>
-            <button className="action-button" onClick={vsComputer}>Player vs Computer</button>
-        </div>
-    )
+import Button from '../Button'    
  
-    if(window.innerWidth<=800){
-        buttonOption=<ScoreBoard type="scoreboard-container-small" player={player} computer={computer} second={second}/>
+ const smallWindowMount = (component, vsPlayer, vsComputer) =>{
+
         return(
             <Grid container>
                 <Grid item
@@ -42,8 +32,8 @@ const viewMount = (component, player, computer, vsPlayer, vsComputer, second) =>
                     <Grid item
                         xs={12}
                         >
-                        <button className="action-button" onClick={vsPlayer}>Player vs Player</button>
-                        <button className="action-button" onClick={vsComputer}>Player vs Computer</button>
+                            <Button type="action-button" text="Player vs Player" clickHandler={vsPlayer}/>
+                            <Button type="action-button" text="Player vs Computer" clickHandler={vsComputer}/>
                     </Grid> 
                 </Grid>   
                 <Grid item container
@@ -59,8 +49,9 @@ const viewMount = (component, player, computer, vsPlayer, vsComputer, second) =>
             </Grid>
         )
     }
-    else {
-        buttonOption=mountButtons();
+
+const largeWindowMount = (component, player, computer, second) =>{
+
         return(
             <Grid container>
                 <Grid item container
@@ -95,7 +86,7 @@ const viewMount = (component, player, computer, vsPlayer, vsComputer, second) =>
             </Grid>
         )
     }
-}
+
 
 const TicGameContainer = ({vsP, second}) => {
 
@@ -121,10 +112,29 @@ const TicGameContainer = ({vsP, second}) => {
     const playerPointsF = () =>{
         setPlayerPoints(playerPoints+1)
     }
+    
+    function mountButtons(){
 
-    const gameWindowMount = <GameWindow setPlayer={playerPointsF} setComputer={computerPointsF} buttonOption={buttonOption} playingVs={vsP}/>
+        var buttonOptions;
+        if (window.innerWidth<=800){
+            
+            buttonOptions=<ScoreBoard type="scoreboard-container-small" player={playerPoints} computer={computerPoints} second={second}/>
+        }
+        else{
 
-    return viewMount(gameWindowMount, playerPoints, computerPoints, vsPlayer, vsComputer, second);
+            buttonOptions=  
+        <div>
+            <Button type="action-button" text="Player vs Player" clickHandler={vsPlayer}/>
+            <Button type="action-button" text="Player vs Computer" clickHandler={vsComputer}/>
+        </div>
+        }
+        return <GameWindow setPlayer={playerPointsF} setComputer={computerPointsF} buttonOption={buttonOptions} playingVs={vsP}/>;
+    }
+
+    const gameWindowMount = mountButtons();
+
+    if (window.innerWidth<=800) return smallWindowMount(gameWindowMount, vsPlayer, vsComputer);
+    else return largeWindowMount(gameWindowMount, playerPoints, computerPoints, second);
 }
 
 TicGameContainer.propTypes = {
