@@ -3,6 +3,7 @@ import { Grid } from '@material-ui/core'
 import { useHistory } from 'react-router'
 
 
+
 const MainPage = () => {
         
     const history = useHistory();
@@ -25,7 +26,7 @@ const MainPage = () => {
             >
             <Grid item
                 xs={1}
-                md={4}>
+                md={4}>                    
             </Grid>
             <Grid item
                 xs={10}

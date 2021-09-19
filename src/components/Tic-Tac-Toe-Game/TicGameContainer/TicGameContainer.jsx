@@ -5,6 +5,8 @@ import GameWindow from '../GameWindow'
 import ScoreBoard from '../ScoreBoard'
 import { useHistory } from 'react-router-dom';
 import Button from '../Button'    
+import { useAuth } from '../../../contexts/AuthContext'
+import useSetScore from '../../../hooks/useSetScore'
  
  const smallWindowMount = (component, vsPlayer, vsComputer) =>{
 
@@ -92,10 +94,14 @@ const largeWindowMount = (component, player, computer, second, vsPlayer, vsCompu
     }
 
 
-const TicGameContainer = ({vsP, second}) => {
+const TicGameContainer = ({vsP, second, score}) => {
 
-    const [playerPoints, setPlayerPoints] = useState(0);
+    const [playerPoints, setPlayerPoints] = useState(score);
     const [computerPoints, setComputerPoints] = useState(0);
+
+    const { currentUser } = useAuth();
+
+    useSetScore(currentUser.uid, playerPoints)
 
     const history = useHistory();
     
@@ -119,10 +125,10 @@ const TicGameContainer = ({vsP, second}) => {
     
     function mountButtons(){
 
-        var buttonOptions;
+        var buttonOptions=<></>;
         if (window.innerWidth<=800){
             
-            buttonOptions=<ScoreBoard type="scoreboard-container-small" player={playerPoints} computer={computerPoints} second={second}/>
+            buttonOptions=<ScoreBoard type="scoreboard-container-small" player={playerPoints} computer={computerPoints} second={second} />
         }
         return <GameWindow setPlayer={playerPointsF} setComputer={computerPointsF} buttonOption={buttonOptions} playingVs={vsP}/>;
     }

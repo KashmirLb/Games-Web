@@ -1,28 +1,27 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import AppFrame from './components/AppFrame';
-import MainPage from './pages/MainPage';
-import TicGamePage1 from './pages/TicGamePage1';
-import TicGamePage2 from './pages/TicGamePage2';
+import AuthProvider from './contexts/AuthContext';
+import RegistrationPage from './pages/RegistrationPage';
+import LoginPage from './pages/LoginPage';
+import PrivatePages from './PrivatePages';
+import PrivateRoute from './PrivateRoute';
 
 
 function App() {
+
   return (
+    <AuthProvider>
       <Router>
         <Switch>
           <AppFrame>
-            <Route exact path="/">
-              <MainPage/>
-            </Route>
-            <Route path="/tic-game1">
-              <TicGamePage1/>
-            </Route>
-            <Route path="/tic-game2">
-              <TicGamePage2/>
-            </Route>
+            <Route path="/register" component={RegistrationPage}/>
+            <Route path="/login" component={LoginPage}/>
+            <PrivateRoute component={PrivatePages}/>
           </AppFrame>
         </Switch>
       </Router>
+    </AuthProvider>
   );
 }
 
