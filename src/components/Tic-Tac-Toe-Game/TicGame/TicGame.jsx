@@ -5,6 +5,7 @@ import { checkWin } from '../WinningOptions'
 import { computerSelects } from '../ComputerPlays'
 import ActionButtons from '../ActionButtons'
 import GameText from '../GameText'
+import { Grid } from '@material-ui/core'
 
 const  positions = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 
@@ -33,9 +34,9 @@ export const checkExist = (matrix, coords) => matrix.some(m =>m.x===coords.x && 
 
 var playerTurn="1"
 
-function TicGame ({sp, sc, vs}){
+function TicGame ({playerScores, secondScores, versusPlayer}){
 
-    const vsPlayer=vs;
+    const vsPlayer=versusPlayer;
 
     function resetGame(){
         player=[]
@@ -56,7 +57,7 @@ function TicGame ({sp, sc, vs}){
             disable=false;
             if (checkWin(computer)){
                 setGameText("The computer has won...")
-                sc();
+                secondScores();
                 disable=true}
             setButtons(allButtons())
         },1200)
@@ -96,7 +97,7 @@ function TicGame ({sp, sc, vs}){
         setButtons(allButtons())
 
         if (!endGame(player, computer)&&!checkWin(player)){
-            // vsComputer();
+
             if (vsPlayer){
             
                 playerTurn="2"
@@ -111,7 +112,7 @@ function TicGame ({sp, sc, vs}){
         if(checkWin(player)) {
             if (vsPlayer) setGameText("Player 1 Wins!")
             else setGameText("You Win!!!")
-            sp();  
+            playerScores();  
     }
 }
 
@@ -131,7 +132,7 @@ function TicGame ({sp, sc, vs}){
         if(endGame(player, computer)) setGameText("Game Over") 
         if(checkWin(computer)) {
             setGameText("Player 2 Wins!")
-            sc();      
+            secondScores();      
     }}
 
     const clickChoice = position =>{
@@ -153,27 +154,30 @@ const [buttons, setButtons] = useState(allButtons())
 const [gameText, setGameText] = useState("") 
 
     return (
-        <div>
-        <div className="game-container">
-            {buttons}
-        </div>
-        <div>
-            <GameText text={gameText}/>
-        </div>
-        
-        <div className="action-button-container">
-            <div className="action-button-border">
+        <Grid container
+        justifyContent="center"
+        alignItems="center"
+        direction="column">
+            <Grid item>
+                <div className="game-container">
+                    {buttons}
+                </div>
+            </Grid>
+            <Grid item>
+                <GameText text={gameText}/>
+            </Grid>
+            <Grid item
+            className="action-button-container">
                 <ActionButtons text={"Restart"} type={"restart-button"} clickHandler={resetGame}/>
-            </div>
-        </div>
-    </div>
+            </Grid>
+        </Grid>
     )
 }
 
 TicGame.propTypes = {
-    sp: PropTypes.func.isRequired,
-    sc: PropTypes.func.isRequired,
-    vs: PropTypes.bool.isRequired
+    playerScores: PropTypes.func.isRequired,
+    secondScores: PropTypes.func.isRequired,
+    versusPlayer: PropTypes.bool.isRequired
 }
 
 export default TicGame

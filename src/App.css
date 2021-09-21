@@ -4,6 +4,11 @@
   background: linear-gradient(
     rgb(94, 120, 248) 0%,
     rgb(0,0,0) 100%);
+    min-height: 93vh;
+}
+
+.big-window-container{
+  height: 70vh;
 }
 
 .head-and-page{
@@ -13,7 +18,6 @@
 .toolbar{
   color: rgb(247, 211, 114);
   background-color: rgb(29, 25, 54);
-  height: 7vh;
   font-weight: bold;
 }
 
@@ -196,12 +200,10 @@
 
 .center-container{
   text-align: center;
-  height: 93vh;
 }
 
 .left-container{
   text-align: center;
-  padding-left:200px;
 }
 
 @keyframes starting-game {
@@ -254,21 +256,17 @@
 
 
 /* TicTacToe Game -----------------------------------------------------------------------------------------*/
-.game-window{
-  height: 93vh;
-}
 
 .game-title{
   font-size: 4vh;
   font-weight: bold;
   color: rgb(247, 211, 114);
-  height: 13vh;
-
   text-shadow: 5px 10px 20px rgb(101, 71, 4);
+  padding:3vh;
 }
 
 .game-game{
-  height: 62vh;
+  min-height: 62vh;
   width: 100%;
   border-radius: 50px;
   background-color: rgb(41, 40, 36);
@@ -376,19 +374,20 @@
   position:relative;
    clear:both;
    height: 100px;
+   margin:20px;
+   margin-top:20px;
 }
 
 .action-button{
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
   rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
   rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  margin:20px;
-  margin-top:20px;
+  
   font-size: 15px;
   font-weight: bold;
   align-items: center;
   height: 64px;
-  width: 134px;
+  width: 120px;
   border-radius: 20px;
   background-color: rgb(235, 173, 2);
 
@@ -401,15 +400,46 @@
 }
 
 .action-button:hover{
-  margin:12px;
-  margin-top:20px;
+
   font-weight: bold;
-  align-items: center;
   height: 70px;
-  width: 150px;
+  width: 130px;
   border-radius: 20px;
   background-color: rgb(247, 204, 86);
-  border-width: 14px;
+  border-width: 10px;
+  border-color: rgb(54, 118, 221);
+}
+
+.player-button{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  
+  margin:10px;
+  font-size: 15px;
+  font-weight: bold;
+  align-items: center;
+  height: 64px;
+  width: 120px;
+  border-radius: 20px;
+  background-color: rgb(235, 173, 2);
+
+  transition: 0.2s all ease-in-out;
+  border-width: 4px;
+  border-color: rgb(23, 39, 120);
+
+  animation-name: scoreboard-appears;
+  animation-duration:1s;
+}
+
+.player-button:hover{
+
+  font-weight: bold;
+  height: 70px;
+  width: 130px;
+  border-radius: 20px;
+  background-color: rgb(247, 204, 86);
+  border-width: 10px;
   border-color: rgb(54, 118, 221);
 }
 
@@ -432,7 +462,7 @@
 
 /* Scoreboard --------------------------------------------------------------------------------- */
 .scoreboard-container-big{
-  width: 100%;
+  width: 60% !important;
   height: 50vh;
   background-color: black;
   border-radius: 10px;
@@ -440,7 +470,7 @@
   border-width: 2px;
   border-style: solid;
   box-shadow: 0 0 20px lightblue;
-
+  margin-top:20%;
   padding:20px;
 
   animation-name: scoreboard-appears;
@@ -448,7 +478,7 @@
 }
 
 .scoreboard-container-small{
-  width: 100%;
+  width: 80%;
   height: 20vh;
   background-color: black;
   padding:20px;

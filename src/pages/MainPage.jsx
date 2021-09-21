@@ -10,7 +10,7 @@ const MainPage = () => {
 
     const onClickHandler = ()=>{
         
-        setStartButton(<div className="start-button-effect" onAnimationEnd={()=>history.push("/tic-game1")}></div>)
+        setStartButton(<div className="start-button-effect" onAnimationEnd={()=>history.push("/tic-game")}></div>)
     }
 
     const [startButton, setStartButton] = useState(
@@ -29,7 +29,8 @@ const MainPage = () => {
                 md={4}>                    
             </Grid>
             <Grid item
-                xs={10}
+                xs={12}
+                sm={10}
                 md={4}
                 className="start-button-container"
                 >

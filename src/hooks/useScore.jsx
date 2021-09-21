@@ -1,21 +1,28 @@
-
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { getFireData } from '../firebase';
 
-const useScore = (id, score, onSetScore) => {
+function useScore (id, userScore){
+
+    const [ score, setScore ] = useState()
 
     useEffect(()=>{
 
-        function getScore(){
-            getFireData(id)
-            .then(data=> onSetScore(data))
-            .catch(()=> onSetScore("No score found"))
+        const getData = async ()=>{
+            try{
+                const dbScore = await getFireData(id);
+                setScore(dbScore)
+            }
+            catch{
+                console.log("Could not get initial Score (useScore)")
+            }
         }
-        getScore();
-        return getScore()
-    }, [id, score, onSetScore])
+        
+        if(userScore===null){
+            getData();
+        }
+    }, [id, userScore])   
 
-    return { score }
+    return score
 }
 
 export default useScore

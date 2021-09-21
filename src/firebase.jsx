@@ -34,6 +34,7 @@ export async function getFireData(user){
     try{
         const firstUser = doc(collection(db, 'users'), user)
         const snap = await getDoc(firstUser)
+        console.log("obtaining")
         return snap.data().score
     }
     catch{}
