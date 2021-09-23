@@ -339,12 +339,17 @@
 }
 
 .selection-button-clicked{
-  background: rgb(255, 255, 255);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  background-color: rgb(235, 173, 2);
   margin:7px;
   border-style: none;
   width: calc(70px + 2vw);
   height: calc(70px + 2vw);
   float:left;
+  animation-name: player-selected;
+  animation-duration:1.5s;
   border-radius:5px
 }
 
@@ -458,6 +463,10 @@
 
 @keyframes pc-selected {
   0% {background-color:red};
+}
+
+@keyframes player-selected {
+  0% {background-color: white};
 }
 
 /* Scoreboard --------------------------------------------------------------------------------- */

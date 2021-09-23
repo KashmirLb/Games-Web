@@ -1,7 +1,7 @@
-import { player, computer, checkExist } from '../TicGame';
+import { checkExist } from '../TicGame';
 import { winCoords } from '../WinningOptions'
 
-function checkWin(){
+function checkWin(player, computer){
 
     var coords;
 
@@ -38,7 +38,7 @@ function checkWin(){
     return coords
 }
 
-function checkLose(){
+function checkLose(player, computer){
 
     var coords;
 
@@ -76,11 +76,11 @@ function checkLose(){
     return coords
 }
 
-export function computerSelects(player, comp){
+export function computerSelects(player, computer){
 
-    const win= checkWin();
+    const win= checkWin(player, computer);
 
-    if(win===undefined)var lose=checkLose();
+    if(win===undefined)var lose=checkLose(player, computer);
     else return win
 
     if (lose===undefined){
@@ -89,7 +89,7 @@ export function computerSelects(player, comp){
 
             const playerTaken = checkExist(player,position)
 
-            const computerTaken = checkExist(comp,position)
+            const computerTaken = checkExist(computer,position)
 
             if (playerTaken || computerTaken){
                 return true

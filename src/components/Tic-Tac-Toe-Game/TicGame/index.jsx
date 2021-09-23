@@ -1,1 +1,1 @@
-export { default, checkExist, player, computer, winLose } from './TicGame'
+export { default, checkExist, winLose } from './TicGame'

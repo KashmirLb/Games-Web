@@ -10,6 +10,8 @@ import PrivateRoute from './PrivateRoute';
 
 function App() {
 
+  
+
   return (
     <AuthProvider>
       <Router>
