@@ -2,11 +2,13 @@
 
  Small React App with Tic-tac-toe game (more to be added)
 
- Worked with multiple components, html elements and CSS effects.
+ Worked with firebase, authentication (private routes) and html elements with CSS effects.
  
- Player vs Player still being developed - might break the score.
+ Player vs Player still being developed
  
- Contact to access!
+ Guest login:
+ Login: guest@guest.com
+ P: G@mesWeb
 
  Result:
 
