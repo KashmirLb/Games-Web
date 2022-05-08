@@ -63,29 +63,32 @@ export const Profile = () => {
 
         setLoading(true)
 
-        if (passwordRef.current.value !== passwordConfirmRef.current.value){
-            setLoading(false)
-            return setError('Passwords do not match')
-        }
+        // if (passwordRef.current.value !== passwordConfirmRef.current.value){
+        //     setLoading(false)
+        //     return setError('Passwords do not match')
+        // }
 
-        const promises = []
+        // const promises = []
 
-        if (emailRef.current.value !== currentUser.email){
-            promises.push(updateEmail(emailRef.current.value))
-        }
-        if (nameRef.current.value && nameRef.current.value !== currentUser.displayName){
-            promises.push(updateName(nameRef.current.value))
-        }
-        if (passwordRef.current.value){
-            promises.push(updatePassword(passwordRef.current.value))
-        }
+        // if (emailRef.current.value !== currentUser.email){
+        //     promises.push(updateEmail(emailRef.current.value))
+        // }
+        // if (nameRef.current.value && nameRef.current.value !== currentUser.displayName){
+        //     promises.push(updateName(nameRef.current.value))
+        // }
+        // if (passwordRef.current.value){
+        //     promises.push(updatePassword(passwordRef.current.value))
+        // }
 
-        Promise.all(promises)
-        .then(()=> history.push("/dashboard"))
-        .catch(()=>{
-            setError("Failed to update")
-            setLoading(false)
-        })
+        // Promise.all(promises)
+        // .then(()=> history.push("/dashboard"))
+        // .catch(()=>{
+        //     setError("Failed to update")
+        //     setLoading(false)
+        // })
+
+        setError("You are not authorized to update!")
+        setLoading(false)
     }
 
     return <FormRender title="Profile" formItems={formItems} buttonText="Update" loading={loading} submitHandler={updateUser} error={error}/>

@@ -19,6 +19,7 @@ function App() {
           <AppFrame>
             <Route path="/register" component={RegistrationPage}/>
             <Route path="/login" component={LoginPage}/>
+            
             <PrivateRoute component={PrivatePages}/>
           </AppFrame>
         </Switch>

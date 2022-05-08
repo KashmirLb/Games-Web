@@ -456,17 +456,16 @@
 }
 
 .win-text{
-   float:bottom;
    color:white;
    font-size: 20px;   
 }
 
 @keyframes pc-selected {
-  0% {background-color:red};
+  0% {background-color:red}
 }
 
 @keyframes player-selected {
-  0% {background-color: white};
+  0% {background-color: white}
 }
 
 /* Scoreboard --------------------------------------------------------------------------------- */

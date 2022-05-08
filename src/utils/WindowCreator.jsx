@@ -13,8 +13,8 @@ function bigWindow (playerClicked, computerClicked, game, scoreboard) {
             md={4}
             >
                 <div style={{paddingLeft:"40%"}} >
-                   <div> <Button type="player-button" text="Player vs Player" clickHandler={playerClicked} style={{margin:"10px"}} /></div>
-                   <div> <Button type="player-button" text="Player vs Computer" clickHandler={computerClicked} style={{margin:"10px"}}/></div>
+                   {/* <div> <Button type="player-button" text="Player vs Player" clickHandler={playerClicked} style={{margin:"10px"}} /></div>
+                   <div> <Button type="player-button" text="Player vs Computer" clickHandler={computerClicked} style={{margin:"10px"}}/></div> */}
                 </div>
             </Grid>   
             <Grid item
@@ -57,8 +57,8 @@ function smallWindow (playerClicked, computerClicked, game, scoreboard) {
             xs={12}
             >
             <div>
-                <Button type="player-button" text="Player vs Player" clickHandler={playerClicked}/>
-                <Button type="player-button" text="Player vs Computer" clickHandler={computerClicked}/>
+                {/* <Button type="player-button" text="Player vs Player" clickHandler={playerClicked}/>
+                <Button type="player-button" text="Player vs Computer" clickHandler={computerClicked}/> */}
             </div>
         </Grid>       
     </Grid>

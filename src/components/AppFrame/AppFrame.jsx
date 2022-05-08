@@ -24,7 +24,7 @@ const AppFrame = ({ children }) => {
                     style={{display:"flex", justifyContent:"space-between"}}>
                          <div color="inherit" aria-label="menu" style={{width:"20vw"}} >
                             <Link 
-                            to="/" 
+                            to={currentUser ? "/" : "/login"}
                             color="inherit" 
                             aria-label="menu"
                             component={LinkRouter}>
